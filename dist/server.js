@@ -5,10 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
+const cors = require('cors');
 const port = 3000;
 const animals = ['elephant', 'crab', 'dolphin', 'turtle', 'gopher'];
 app.use(express_1.default.static('./client/dist'));
-app.get('/animals', (req, res) => {
+app.use(cors());
+app.get('/messages', (req, res) => {
     res.send(JSON.stringify(animals));
 });
 app.listen(port, () => {

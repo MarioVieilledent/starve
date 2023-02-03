@@ -1,13 +1,15 @@
 import express from 'express';
 
 const app: express.Application = express();
+const cors = require('cors');
 const port = 3000;
 
 const animals = ['elephant', 'crab', 'dolphin', 'turtle', 'gopher'];
 
 app.use(express.static('./client/dist'));
+app.use(cors());
 
-app.get('/animals', (req: express.Request, res: express.Response) => {
+app.get('/messages', (req: express.Request, res: express.Response) => {
   res.send(JSON.stringify(animals));
 });
 

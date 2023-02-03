@@ -1,28 +1,22 @@
-/**
- * Service HTTP
- */
-export class HTTP {
+// let href: string = window.location.href;
+let href: string = "http://localhost:3000/";
 
-    private href: string;
+export function getText(path: string, script: (data: any) => void): void {
+  fetch(buildUrl(path))
+    .then((data) => data.text())
+    .then((data: any) => {
+      script(data);
+    });
+}
 
-    public constructor() {
-        this.href = window.location.href;
-        console.log(window.location.href);
-    }
+export function getJson(path: string, script: (data: any) => void): void {
+  fetch(buildUrl(path))
+    .then((data) => data.json())
+    .then((data: any) => {
+      script(data);
+    });
+}
 
-    public getText(path: string, script: (data: any) => void): void {
-        fetch(this.buildUrl(path)).then(data => data.text()).then((data: any) => {
-            script(data);
-        });
-    }
-
-    public getJson(path: string, script: (data: any) => void): void {
-        fetch(this.buildUrl(path)).then(data => data.json()).then((data: any) => {
-            script(data);
-        });
-    }
-
-    private buildUrl(path: string): string {
-        return this.href + path;
-    }
+function buildUrl(path: string): string {
+  return href + path;
 }
