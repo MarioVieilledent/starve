@@ -1,5 +1,5 @@
 <script>
-  import Chat from "./chat/Chat.svelte";
+  import Game from "./game/Game.svelte";
 </script>
 
 <div class="all fc">
@@ -9,7 +9,7 @@
   <div class="nav-and-content f">
     <div class="nav fc" />
     <div class="content">
-      <Chat />
+      <Game />
     </div>
   </div>
 </div>
