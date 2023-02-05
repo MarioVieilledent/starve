@@ -8,6 +8,21 @@ exports.map = {
             name: 'stone',
             pos: [2, 1],
             ressourceLevel: 100
+        },
+        {
+            name: 'tree',
+            pos: [-3, 4],
+            ressourceLevel: 100
+        },
+        {
+            name: 'craftingTable',
+            pos: [-2, -2],
+            ressourceLevel: 100
+        },
+        {
+            name: 'gold',
+            pos: [3, -1],
+            ressourceLevel: 100
         }
     ]
 };

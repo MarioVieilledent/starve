@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { watchResize } from "svelte-watch-resize";
-    import { Graphics } from "./graphics/graphics";
+    import { Graphics } from "./graphics/game";
 
     let container: HTMLElement;
 
@@ -16,7 +16,11 @@
         // Class Graphics thant handles graphics
         setTimeout(() => {
             graphics = new Graphics();
-        }, 200);
+        }, 50);
+
+        setTimeout(() => {
+            windowResize();
+        }, 100);
     });
 
     function windowResize(): void {

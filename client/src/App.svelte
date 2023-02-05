@@ -1,11 +1,5 @@
 <script lang="ts">
   import Canvas from "./game/Canvas.svelte";
-
-  // Handle keys down
-  document.onkeydown = (event) => {};
-
-  // Handle keys up
-  document.onkeyup = (event) => {};
 </script>
 
 <div class="all">

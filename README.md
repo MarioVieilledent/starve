@@ -1,8 +1,9 @@
-# card-game
+# Starve
 
-Another excuse to code yet.
+An attempt to improve [starve.io](https://starve.io/)
 
 ## Languages and features
 
-- Frontend: svelte with ts and scss
-- Backend: node.js + express + typescript
+- Frontend: [Svelte](https://svelte.dev/) with TypeScript and SCSS
+- Backend: Node.js + Express + TypeScript
+- Data transfer: [Socket.IO](https://socket.io/)
