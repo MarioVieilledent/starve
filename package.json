@@ -5,6 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "tsc && nodemon dist/server.js",
+    "build": "cd client & npm run build & cd .. & tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
