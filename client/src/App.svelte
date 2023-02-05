@@ -2,14 +2,10 @@
   import Canvas from "./game/Canvas.svelte";
 
   // Handle keys down
-  document.onkeydown = (event) => {
-    console.log(event.key);
-  };
+  document.onkeydown = (event) => {};
 
   // Handle keys up
-  document.onkeyup = (event) => {
-    console.log(event.key);
-  };
+  document.onkeyup = (event) => {};
 </script>
 
 <div class="all">

@@ -3,42 +3,38 @@
     import { watchResize } from "svelte-watch-resize";
     import { Graphics } from "./graphics/graphics";
 
-    let windowWidth: number;
-    let windowHeight: number;
-
     let container: HTMLElement;
-    let canvas: HTMLCanvasElement;
 
+    // Handles drawing on canvas
     let graphics: Graphics;
 
     // Init everything needed, once
-    onMount(() => {
+    onMount(async () => {
         // div containing the canvas
         container = document.getElementById("container");
 
-        // Canvas that take all window space
-        canvas = document.getElementById("canvas") as HTMLCanvasElement;
-
         // Class Graphics thant handles graphics
-        graphics = new Graphics(canvas);
-
-        windowWidth = container.offsetWidth;
-        windowHeight = container.offsetHeight;
+        setTimeout(() => {
+            graphics = new Graphics();
+        }, 200);
     });
 
     function windowResize(): void {
-        windowWidth = container.offsetWidth;
-        windowHeight = container.offsetHeight;
+        if (graphics) {
+            graphics.resize(container.offsetWidth, container.offsetHeight);
+        }
     }
 </script>
 
-<div id="container">
-    <canvas id="canvas" width="100%" height="100%" />
+<div id="container" use:watchResize={windowResize}>
+    <canvas id="canvas" />
 </div>
 
 <style>
     #container {
         width: 100%;
         height: 100%;
+        background-color: #133a2b;
+        overflow: hidden;
     }
 </style>

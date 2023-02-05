@@ -1,18 +1,23 @@
-import express from 'express';
+import socketServer from "./services/socket";
 
-const app: express.Application = express();
-const cors = require('cors');
-const port = 3000;
+var express = require('express');
+var app = express();
 
-const animals = ['elephant', 'crab', 'dolphin', 'turtle', 'gopher'];
-
-app.use(express.static('./client/dist'));
-app.use(cors());
-
-app.get('/messages', (req: express.Request, res: express.Response) => {
-  res.send(JSON.stringify(animals));
+const http = require('http').Server(app);
+const io = require('socket.io')(http, {
+  cors: {
+    origins: ['http://localhost:5173']
+  }
 });
 
-app.listen(port, () => {
-  return console.log(`Express is listening at http://localhost:${port}`);
+const port = process.env.PORT || 5000;
+
+app.set(port, process.env.PORT);
+app.use(express.static('./client/dist/'));
+
+// Socket server-side management
+socketServer(io);
+
+http.listen(port, () => {
+  console.log('App listening on port ' + port);
 });
