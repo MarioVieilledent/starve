@@ -1,3 +1,6 @@
 import { io } from "socket.io-client";
 
-export const socket = io(`ws://localhost:${process.env.PORT || 5000}`);
+// const PORT: number = 5000;
+const PORT: number = 10000;
+
+export const socket = io(`ws://localhost:${PORT}`);
